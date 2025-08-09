@@ -10,7 +10,7 @@
 
 <h2>${alumno != null ? "Editar Alumno" : "Nuevo Alumno"}</h2>
 
-<form method="post" action="">
+<form method="post" action="alumnos">
     <input type="hidden" name="accion" value="guardar" />
     <c:if test="${alumno != null}">
         <input type="hidden" name="id" value="${alumno.id}" />

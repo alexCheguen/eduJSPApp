@@ -32,19 +32,23 @@ public class AlumnoControlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String accion = request.getParameter("accion");
 
         if ("guardar".equals(accion)) {
+
             String idTexto = request.getParameter("id");
             String nombre = request.getParameter("nombre");
             String carrera = request.getParameter("carrera");
 
             if (idTexto == null || idTexto.isBlank()) {
                 // Crear nuevo
+
                 service.registrar(nombre, carrera);
             } else {
                 // Actualizar
                 int id = Integer.parseInt(idTexto);
+          
                 service.actualizar(id, nombre, carrera);
             }
             response.sendRedirect("alumnos");
